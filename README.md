@@ -13,7 +13,7 @@ Anti Forensics Tool For Red Teamers, Used For Erasing Some Footprints In The Pos
 * File Melting.
 
 
-![Screenshot](suspex.png)
+![Screenshot](forensia.png)
 
 
 ## TODO
