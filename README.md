@@ -1,5 +1,27 @@
 # Forensia
-Anti Forensics Tool For Red Teamers, Used For Erasing Footprints In The Post Exploitation Phase.
+Anti Forensics Tool For Red Teamers, Used For Erasing Some Footprints In The Post Exploitation Phase.
+
+## Capabilities
+
+* Unloading Sysmon Driver.
+* Gutmann Method File Shredding.
+* USNJrnl Disable.
+* Prefetch Disable.
+* Log Eraser and Even log Disable.
+* User Assist Update Time Disable.
+* Access Time Disable.
+* File Melting.
+
+
+![Screenshot](suspex.png)
+
+
+## TODO
+- [ ] USNJRnl Execution On All Drives.
+
+- [ ] Unallocated Space ReWriting.
+
+- [ ] Polishing.
 
 ## Credits
 
