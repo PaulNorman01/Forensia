@@ -19,7 +19,7 @@ Reduces Payload Burnout And Increases Detection Countdown. Can Be Used To Test T
 
 
 ## TODO
-- [ ] USNJRnl Execution On All Drives.
+- [ ] USNJRnl Execution On All Disk Drives.
 
 - [ ] Unallocated Space ReWriting.
 
