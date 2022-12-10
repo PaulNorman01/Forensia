@@ -1,16 +1,18 @@
 # Forensia
-Anti Forensics Tool For Red Teamers, Used For Erasing Some Footprints In The Post Exploitation Phase.
+**Anti Forensics Tool For Red Teamers, Used For Erasing Some Footprints In The Post Exploitation Phase.**
+
+Reduces Payload Burnout And Increases Detection Countdown. Can Be Used To Test The capabilities of Your Incident Response / Forensics Teams.
 
 ## Capabilities
 
 * Unloading Sysmon Driver.
 * Gutmann Method File Shredding.
-* USNJrnl Disable.
-* Prefetch Disable.
-* Log Eraser and Event log Disable.
-* User Assist Update Time Disable.
-* Access Time Disable.
-* File Melting.
+* USNJrnl Disabler.
+* Prefetch Disabler.
+* Log Eraser and Event log Disabler.
+* User Assist Update Time Disabler.
+* Access Time Disabler.
+* File Melting Capabilities.
 
 
 ![Screenshot](forensia.PNG)
@@ -21,7 +23,7 @@ Anti Forensics Tool For Red Teamers, Used For Erasing Some Footprints In The Pos
 
 - [ ] Unallocated Space ReWriting.
 
-- [ ] Polishing.
+- [ ] A Bit of Polishing.
 
 ## Credits
 
