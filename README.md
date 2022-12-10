@@ -7,7 +7,7 @@ Anti Forensics Tool For Red Teamers, Used For Erasing Some Footprints In The Pos
 * Gutmann Method File Shredding.
 * USNJrnl Disable.
 * Prefetch Disable.
-* Log Eraser and Even log Disable.
+* Log Eraser and Event log Disable.
 * User Assist Update Time Disable.
 * Access Time Disable.
 * File Melting.
