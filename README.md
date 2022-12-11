@@ -17,6 +17,14 @@ Reduces Payload Burnout And Increases Detection Countdown. Can Be Used To Test T
 
 ![Screenshot](forensia.PNG)
 
+## Important Update
+
+Added:
+* Clear Recent Items
+* Clear Shim Cache
+* Clear RecentFileCache
+* Clear ShellBag
+
 
 ## TODO
 - [ ] USNJRnl Execution On All Disk Drives.
