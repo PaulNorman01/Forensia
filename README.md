@@ -15,7 +15,7 @@ Reduces Payload Burnout And Increases Detection Countdown. Can Be Used To Test T
 * File Melting Capabilities.
 
 
-![Screenshot](forensia.PNG)
+![Screenshot](forensia.png)
 
 ## Important Update
 
