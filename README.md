@@ -12,6 +12,10 @@ Reduces Payload Burnout And Increases Detection Countdown. Can Be Used To Test T
 * Log Eraser and Event log Disabler.
 * User Assist Update Time Disabler.
 * Access Time Disabler.
+* Clear Recent Items
+* Clear Shim Cache
+* Clear RecentFileCache
+* Clear ShellBag
 * File Melting Capabilities.
 
 
