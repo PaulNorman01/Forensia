@@ -3,9 +3,9 @@
 
 LPWSTR g_pwszExecutionMode = nullptr;
 
+
 VOID PrintUsage()
 {
-
 	wprintf(
 		L"\n    ______                           _      \n"
 		"   / ____/___  ________  ____  _____(_)___ _\n"
@@ -13,7 +13,6 @@ VOID PrintUsage()
 		" / __/ / /_/ / /  /  __/ / / (__  ) / /_/ / \n"
 		"/_/    \\____/_/   \\___/_/ /_/____/_/\\__,_/  \n"
 		"                                            \n"
-		">>>>>> Anti Forensics Tool For Red Teamers\n"
 		"\n   Usage: \n"
 		"     Forensia.exe <option>\n"
 		"  \t-S : Sysmon Unloader\n"
@@ -23,8 +22,13 @@ VOID PrintUsage()
 		"  \t-L : Windows Log Eraser And Disabler\n"
 		"  \t-T : Timestamps-User Assist Disabler\n"
 		"  \t-A : Access Time Disabler\n"
-		"  \t-E : Event Tracing Disabler -> EXPERIMENTAL, AVOID IT!\n"
+		"  \t-E : Event Tracing Disabler >>>>> EXPERIMENTAL AND SHOULD NOT BE USED!!!!!\n"
+		"  \t-B : Remove ShellBags\n"
+		"  \t-C : Clear ShimCache\n"
+		"  \t-R : Delete RecentFileCache.bcf\n"
+		"  \t-I : Clear Recent Items\n"
 		"  \t-M : Melt Me!\n"
+		//"  \t-Z : ALL OPTIONS!\n"
 		"  \n\n\t Example: Forensia.exe -A\n"
 		"  \t Example: Forensia.exe -D File.txt\n"
 		"\n"
@@ -33,8 +37,11 @@ VOID PrintUsage()
 
 BOOL ParseArguments(int argc, wchar_t* argv[])
 {
+	BOOL bReturnValue = TRUE;
+
 
 	g_pwszExecutionMode = argv[1];
+
 
 	switch (g_pwszExecutionMode[1])
 	{
@@ -46,15 +53,14 @@ BOOL ParseArguments(int argc, wchar_t* argv[])
 		}
 	case 'D':
 		{
-			size_t origsize = wcslen(argv[2]) + 1;
-			size_t convertedChars = 0;
-			const size_t newsize = origsize * 2;
-			char* nstring = new char[newsize];
-			wcstombs_s(&convertedChars, nstring, newsize, argv[2], _TRUNCATE);
-			wprintf(L"Switching To Shredding Module...\n");
-			CorruptFunc(argc, nstring);
-			wprintf(L"Done Shredding The Given File.\n");
-			break;
+		size_t origsize = wcslen(argv[2]) + 1;
+		size_t convertedChars = 0;
+		const size_t newsize = origsize * 2;
+		char* nstring = new char[newsize];
+		wcstombs_s(&convertedChars, nstring, newsize, argv[2], _TRUNCATE);
+		wprintf(L"Switching To Shredding Module...\n");
+		CorruptFunc(argc, nstring);
+		break;
 		}
 	case 'U':
 	{
@@ -93,6 +99,50 @@ BOOL ParseArguments(int argc, wchar_t* argv[])
 		RegFunc(4);
 		break;
 	}
+	case 'B':
+	{
+		wprintf(L"Switching To ShellBag Remover...\n");
+		RegFunc(5);
+		break;
+	}
+	case 'R':
+	{
+		wprintf(L"Deleting RecentFileCache.bcf, However It May Not Exist!\n");
+		system("del C:\\Windows\\AppCompat\\Programs\\RecentFileCache.bcf");
+		break;
+	}
+	case 'C':
+	{
+		wprintf(L"Clearing Shim Cache Data...\n");
+		system("Rundll32.exe apphelp.dll,ShimFlushCache");
+		break;
+	}
+	case 'I':
+	{
+		wprintf(L"Clearing Recent Items...\n");
+		system("del /F /Q %APPDATA%\\Microsoft\\Windows\\Recent\\*");
+		system("del /F /Q %APPDATA%\\Microsoft\\Windows\\Recent\\CustomDestinations\\*");
+		system("del /F /Q %APPDATA%\\Microsoft\\Windows\\Recent\\AutomaticDestinations\\*");
+		break;
+	}
+	/*
+	case 'Z':
+	{
+		SysmonUnload();
+		system("fsutil.exe usn deletejournal /D C:");
+		RegFunc(1);
+		RegFunc(2);
+		RegFunc(3);
+		RegFunc(4);
+		RegFunc(5);
+		system("del C:\\Windows\\AppCompat\\Programs\\RecentFileCache.bcf");
+		system("Rundll32.exe apphelp.dll,ShimFlushCache");
+		system("del /F /Q %APPDATA%\\Microsoft\\Windows\\Recent\\*");
+		system("del /F /Q %APPDATA%\\Microsoft\\Windows\\Recent\\CustomDestinations\\*");
+		system("del /F /Q %APPDATA%\\Microsoft\\Windows\\Recent\\AutomaticDestinations\\*");
+		break;
+	}
+	*/
 	case 'M':
 	{
 		wprintf(L"Melting The Executable...Goodbye!\n");
@@ -100,11 +150,10 @@ BOOL ParseArguments(int argc, wchar_t* argv[])
 		break;
 	}
 	default:
-		PrintUsage();
-		break;
+		return (!bReturnValue);
 	}
 
-	return false;
+	return bReturnValue;
 }
 
 
@@ -112,6 +161,7 @@ int wmain(int argc, wchar_t* argv[])
 {
 	if (argc > 1)
 	if (!ParseArguments(argc, argv))
-		return 1;
-	PrintUsage();
+		PrintUsage();
+
+	exit(0);
 }
