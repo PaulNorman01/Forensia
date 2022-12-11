@@ -78,7 +78,7 @@ BOOL ParseArguments(int argc, wchar_t* argv[])
 	{
 		wprintf(L"Switching To Prefetch Disabler...\n");
 		RegFunc(1);
-		wprintf(L"\nDone?\n");
+		system("del /F /Q C:\\Windows\\Prefetch\\*");
 		break;
 	}
 	case 'A':
