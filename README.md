@@ -16,6 +16,7 @@ Reduces Payload Burnout And Increases Detection Countdown. Can Be Used To Test T
 * Clear Shim Cache
 * Clear RecentFileCache
 * Clear ShellBag
+* Delete Windows Defender Quarantine Files
 * File Melting Capabilities.
 
 
@@ -28,6 +29,7 @@ Added:
 * Clear Shim Cache
 * Clear RecentFileCache
 * Clear ShellBag
+* Clear Quanatine Files
 
 
 ## TODO
@@ -35,7 +37,7 @@ Added:
 
 - [ ] Unallocated Space ReWriting.
 
-- [ ] A Bit of Polishing.
+- [x] A Bit of Polishing.
 
 ## Credits
 
