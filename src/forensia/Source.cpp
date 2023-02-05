@@ -24,6 +24,7 @@ VOID PrintUsage()
 		"  \t-A : Access Time Disabler\n"
 		"  \t-E : Event Tracing Disabler >>>>> EXPERIMENTAL AND SHOULD NOT BE USED!!!!!\n"
 		"  \t-B : Remove ShellBags\n"
+		"  \t-Q : Remove Defender Quarantine Files\n"
 		"  \t-C : Clear ShimCache\n"
 		"  \t-R : Delete RecentFileCache.bcf\n"
 		"  \t-I : Clear Recent Items\n"
@@ -143,6 +144,14 @@ BOOL ParseArguments(int argc, wchar_t* argv[])
 		break;
 	}
 	*/
+	case 'Q':
+	{
+		wprintf(L"Clearing Defender Quarantine Files...\n");
+		system("rmdir C:\ProgramData\Microsoft\Windows Defender\Quarantine\Entries /S");
+		system("rmdir C:\ProgramData\Microsoft\Windows Defender\Quarantine\Resources /S");
+		system("rmdir C:\ProgramData\Microsoft\Windows Defender\Quarantine\ResourceData /S");
+		break;
+	}
 	case 'M':
 	{
 		wprintf(L"Melting The Executable...Goodbye!\n");
