@@ -2,7 +2,8 @@
 
 
 #include "common.h"
-#include "regedit.hpp"
+#include "regedit.h"
+#include "strsafe.h"
 
 
 using std::wstring;
